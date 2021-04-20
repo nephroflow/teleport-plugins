@@ -7,8 +7,9 @@ import (
 )
 
 type RequestData struct {
-	User  string
-	Roles []string
+	User          string
+	Roles         []string
+	RequestReason string
 }
 
 type SlackData struct {
@@ -24,6 +25,7 @@ type PluginData struct {
 func DecodePluginData(dataMap access.PluginDataMap) (data PluginData) {
 	data.User = dataMap["user"]
 	data.Roles = strings.Split(dataMap["roles"], ",")
+	data.RequestReason = dataMap["request_reason"]
 	data.ChannelID = dataMap["channel_id"]
 	data.Timestamp = dataMap["timestamp"]
 	return
@@ -31,9 +33,10 @@ func DecodePluginData(dataMap access.PluginDataMap) (data PluginData) {
 
 func EncodePluginData(data PluginData) access.PluginDataMap {
 	return access.PluginDataMap{
-		"user":       data.User,
-		"roles":      strings.Join(data.Roles, ","),
-		"channel_id": data.ChannelID,
-		"timestamp":  data.Timestamp,
+		"user":           data.User,
+		"roles":          strings.Join(data.Roles, ","),
+		"request_reason": data.RequestReason,
+		"channel_id":     data.ChannelID,
+		"timestamp":      data.Timestamp,
 	}
 }
