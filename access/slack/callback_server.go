@@ -15,7 +15,7 @@ import (
 	"github.com/gravitational/teleport-plugins/lib/logger"
 	"github.com/gravitational/trace"
 	"github.com/julienschmidt/httprouter"
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 )
 
 // Callback struct represents an HTTP request that is a callback from Slack,
@@ -113,7 +113,7 @@ func (s *CallbackServer) processCallback(rw http.ResponseWriter, r *http.Request
 		http.Error(rw, "", http.StatusUnauthorized)
 		return
 	}
-
+	log.Debug(string(payload))
 	var cb slack.InteractionCallback
 	if err := json.Unmarshal(payload, &cb); err != nil {
 		log.WithError(err).Error("Failed to parse json body")

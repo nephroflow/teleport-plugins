@@ -28,7 +28,7 @@ import (
 	"github.com/gravitational/teleport/lib/events"
 	"github.com/gravitational/teleport/lib/services"
 	"github.com/gravitational/trace"
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 
 	. "gopkg.in/check.v1"
 )

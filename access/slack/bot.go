@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/gravitational/trace"
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 )
 
 const slackMaxConns = 100

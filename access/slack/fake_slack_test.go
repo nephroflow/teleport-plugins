@@ -15,7 +15,7 @@ import (
 
 	"github.com/gravitational/trace"
 	"github.com/julienschmidt/httprouter"
-	"github.com/nlopes/slack"
+	"github.com/slack-go/slack"
 
 	log "github.com/sirupsen/logrus"
 )
